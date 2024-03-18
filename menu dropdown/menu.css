@@ -1,0 +1,36 @@
+.dropdown {
+position: relative;
+display: inline-block;
+}
+.dropdown-child {
+display: none;
+background-color: skyblue;
+min-width: 200px;
+flex-direction: column;
+}
+.dropdown-child a {
+color: blue;
+padding: 20px;
+text-decoration: none;
+display: block;
+}
+
+.dropdown:hover .dropdown-child {
+display: block;
+}
+.dropdown-child a:hover {
+background-color: coral;
+color: white;
+}
+
+.mainmenubtn {
+background-color: skyblue;
+color: white;
+border: none;
+cursor: pointer;
+padding: 20px;
+margin-top: 20px;
+}
+.mainmenubtn:hover {
+background-color: blue;
+}
