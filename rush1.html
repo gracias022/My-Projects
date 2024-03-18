@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta content="width=device-width, initial-scale=1.0" name="viewport">
+		<title>Gracia's webpage</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+  display:flex;
+  position: fixed;
+  z-index:1;
+  text-align:center;
+  width:100%;
+ /* justify-content:center;*/
+}
+
+.topnav a {
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+
+.topnav a:hover {
+	background-color:#62B1C6;
+	color:brown;
+}l
+
+.topnav a.active {
+	background-color:#16b892;
+	color:white;
+}
+.parallax-1 {width:100%; height:100%; background-image:linear-gradient(rgba(0, 0, 0, .5), #C6ACE8),url("https://cdn.pixabay.com/photo/2022/12/04/03/17/youtube-background-7633632_1280.jpg");min-height: 500px; background-attachment: fixed; background-position: center; background-repeat: no-repeat; background-size: cover;}
+.parallax-2 {width:100%; height:100%; background-color:black; min-height:850px; background-attachment:fixed; background-position: center; background-repeat: no-repeat; background-size: cover;}
+.parallax-3 {width:100%; height:100%; background-image:linear-gradient(rgba(0, 0, 0, .5), #C6ACE8),url("https://cdn.pixabay.com/photo/2015/05/13/20/03/backdrop-765914_1280.jpg"); min-height:850px; background-attachment:fixed; background-position: center; background-repeat: no-repeat; background-size: cover;}
+.parallax-container1 {
+  position: relative;
+  height:100%; 
+  width:100%;
+  z-index:0;
+  overflow:visible;
+  overflow-y:auto;
+}
+
+.overlay-content {position: absolute; top:50%; left:50%; transform: translate(-50%, -50%); display: grid;flex-direction:row;align-items: center; justify-content:space-between ; color: white;}
+.parallax-container {
+
+  position: relative;
+  height:100%;
+  width:100%;
+  z-index:0;
+  overflow:hidden;
+}
+.overlay-content1 {position: absolute; display: grid;align-items: center; justify-content:space-between ; color: white; z-index:1; top:3%; left:8%; width: 90%;padding-right:10em;z-index:1;}
+.overlay-content3 {position: absolute; display: grid;align-items: center; justify-content:space-between ; color: white; z-index:1; top:50%; left:8%; width: 90%;padding-right:10em;}
+
+.overlay-content2 {position: absolute; display: flex;align-items: center; justify-content:space-around ;top:30%; left:50%; transform: translate(-50%, -50%); color: white; z-index:1; }
+
+
+.profilepic-container {
+	overflow: hidden;
+            position: relative;
+            text-align: center;
+	  /*  padding-bottom: 4px; Decrease the padding to shift the image upwards */
+                
+} 
+.profilepic {
+	border-radius: 50%;
+	vertical-align: middle;
+}
+table {
+	border-spacing:40px;
+	table-layout:fixed;
+        padding-left:25%;
+
+}
+html {scroll-behavior: smooth;
+}
+
+
+
+body { margin:0;
+	background-color:black;
+	overflow-x:auto;
+        
+}
+
+h4 {
+	font-style: italic;
+}
+.map-responsive{
+	overflow:hidden;
+	padding-bottom:40%;
+	position:relative;
+	height:0;
+}
+.map-responsive iframe{
+	left:0;
+	top:0;
+	height:70%;
+	width:50%;
+	position:absolute
+}
+
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  background-color: #000;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -1px;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 50px;
+}
+
+.timeline-item::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #000;
+  border-radius: 50%;
+  top: 0;
+  left: 50%;
+  margin-left: -10px;
+}
+
+.timeline-item.left .timeline-content {
+  left: 80%;
+}
+
+.timeline-item.right .timeline-content {
+  left: -80%;
+}
+
+.timeline-content {
+  position: relative;
+  left: 30px;
+}
+
+.timeline-date {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.timeline-description {
+  margin-bottom: 10px;
+}
+.mainmenubtn {
+background-color:#8DDCB5;
+color: black;
+font-family:cursive;
+font-weight:bold;
+border: none;
+
+cursor: pointer;
+padding:10px;
+margin-top: 20px;
+}
+.mainmenubtn:hover {
+background-color:#61A583;
+}
+
+.social-icons {
+            margin: 10px 2em;
+            font-size: 2em;
+            color: #BDF63A;
+            z-index: 999;  
+        }
+
+        .social-icons a {
+            text-decoration: none;
+            margin-right: 10px; /* Adjust the margin as needed */
+}
+
+.social-icons a:last-child {
+    margin-right: 0;
+        }
+
+        .social-icons .fa {
+            transition: transform 0.3s ease;
+        }
+
+
+</style>
+</head>
+<body>
+	<div class="topnav">
+		<a class="active" href="#home">Home</a>
+		<a href="#about">About</a>
+		<a href="#experiences">Experiences</a>
+		<a href="#contact">Contact</a>
+	</div>
+
+	 <div class="parallax-container" id="home">
+                <div class="parallax-1"></div>
+                <div class="overlay-content">
+		       <table border="0" style="overflow-x:visible">
+                                <tr>
+                                        <td colspan="3" width=1000px><h1>John Doe</h1></td>
+                                        <td rowspan="2" class="profilepic-container" ><img class="profilepic" src="https://cdn.pixabay.com/photo/2022/03/10/13/59/astronaut-7059915_1280.png" alt="profie pic"
+ height=150em width=150em></td>
+                                </tr>
+                                <tr>
+                                        <td colspan="3" width=1000px><h2>I'm a Freelancer.</h2></td>
+                                </tr>
+                        </table>
+		</div>
+		<div class="overlay-content3">
+			<a href="#about"><button class="mainmenubtn">Find out more about me!</button></a>
+			<a href="#experiences"><button class="mainmenubtn">My past experiences</button></a>
+		</div>
+         </div>
+
+         <div class="parallax-container" id="about">
+                <div class="parallax-2"></div>
+                <div class="overlay-content">
+                      <h1>About Me</h1>
+		      <h4>XX years / L'viv / Freelance</h4>
+		      <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+		</div>
+         </div>
+
+         <div class="parallax-container" id="experiences">
+                <div class="parallax-3"></div>
+		<div class="overlay-content1">
+			<h1>Past Experiences</h1></div>
+                <div class="overlay-content2">
+			<div class="timeline">
+                            <div class="timeline-item right">
+                                <div class="timeline-content">
+                                      <div class="timeline-date">2020</div>
+                                      <div class="timeline-description">
+					      <h4>Graphic Designer</h4>
+					      <p>The Design Unit</p>
+					      <p>London, United Kingdom</p>
+				      </div>
+                                </div>
+                           </div>
+                           <div class="timeline-item left">
+                                <div class="timeline-content">
+                                      <div class="timeline-date">2022</div>
+                                      <div class="timeline-description">
+					      <h4>UI Designer</h4>
+					      <p>Design Company</p>
+					      <p>Brooklyn, NY, USA</p>
+                                </div>
+                           </div>
+                           <div class="timeline-item right">
+                                <div class="timeline-content">
+                                     <div class="timeline-date">2024</div>
+                                     <div class="timeline-description">
+					     <h4>Lead UI Designer</h4>
+					     <p>Big Design Company</p>
+					     <p>New York, NY, USA</p>
+				     </div>
+                                </div>
+                           </div>
+                     </div>
+	     </div>
+         </div>
+
+	 <div class="parallax-container1" id="contact">
+                <div class="parallax-2"></div>
+                <div class="overlay-content1" style="overflow-x:auto; overflow-y:auto;">
+                        <h1>Contact Me</h1>
+			<p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+			<div class="map-responsive">
+			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.7258745299027!2d103.96077202471112!3d1.3408213986464823!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da3d5aeb0a4359%3A0xbb8de8a01986dc2f!2s42%20Singapore!5e0!3m2!1sen!2ssg!4v1707442106298!5m2!1sen!2ssg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+			</div>
+			<div class="social-icons">
+				<a href="https://dribbble.com/"><span class="fa fa-dribbble"></span></a>
+                                <a href="https://twitter.com/login"><span class="fa fa-twitter"></span></a>
+                                <a href="https://sg.linkedin.com/"><span class="fa fa-linkedin"></span></a>
+                                <a href="https://www.instagram.com/"><span class="fa fa-instagram"></span></a>
+                        </div>
+                </div>
+         </div>
+</body>
+</html>
+
