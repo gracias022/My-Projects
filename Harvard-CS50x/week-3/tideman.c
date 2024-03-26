@@ -1,3 +1,4 @@
+// a program that runs a Tideman election, printing a single winner using votes that express preferences. 
 #include <cs50.h>
 #include <stdio.h>
 #include <string.h>
