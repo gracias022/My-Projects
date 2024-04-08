@@ -1,0 +1,14 @@
+If songs.db contains the top 100 songs of one listener from 2018, how would you characterize their audio aura?
+
+SQL:
+SELECT AVG(energy), AVG(valence). AVG(danceability)
+FROM songs
+
+Hypothesize about why the way you’ve calculated this aura might not be very representative of the listener.
+What better ways of calculating this aura would you propose?
+
+Every song has equal weightage in determining the average scores for energy, valence and danceability,
+which means songs that are ranked lower could influence the final average values as much as those most favoured by the listener.
+
+A better way could be calculating the weighted average, assigning different weightages to different songs based on each respective song's ranking on the list.
+
