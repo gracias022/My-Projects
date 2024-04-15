@@ -1,0 +1,21 @@
+10 HTML tags used:
+1. img
+2. span
+3. p
+4. h1
+5. ul
+6. li
+7. br
+8. link
+9. a
+10. button
+
+5 CSS properties used
+1. font-family
+2. display
+3. align-items
+4. padding
+5. transform
+
+A brief (one-sentence) description of how I chose to use JavaScript and Bootstrap:
+I used Bootstrap to style the navigation bar of my webpage. I used Javascript to create a slideshow background for my homepage and create a typewriting effect for my quotes page.

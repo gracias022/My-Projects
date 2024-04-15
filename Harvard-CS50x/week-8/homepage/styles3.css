@@ -1,0 +1,207 @@
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+
+  .fadeIn {
+    animation: fadeIn 1s ease-in-out;
+  }
+
+  body {
+    height: 100%;
+  }
+
+#logo {
+    border-radius: 50%;
+    width: 5em;
+    height: 5em;
+}
+
+nav {
+    z-index: 1;
+}
+.navbar-toggler:hover {
+    background-color: #77C1E6;
+}
+
+.navbar-toggler {
+    background-color: #9FE7F6;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    }
+
+.navbar-nav {
+    padding-left: 2em;
+}
+
+form {
+    font-family: 'Nunito';
+}
+
+input {
+    border-style: groove;
+    border-color: white;
+    border-width: 2px;
+    background-color: rgba(128, 128, 128, 0.5);
+    padding: 5px;
+    margin: 5px;
+    color: white;
+}
+
+::placeholder {
+    color: #C5D3D5 !important; /* Black placeholder text with 60% opacity */
+  }
+
+textarea {
+    background-color: rgba(128, 128, 128, 0.5) !important;
+    border: 1px groove rgba(250,250,250,1);
+    border-radius: 0px;
+    margin: 5px;
+    color: white !important;
+    font-size: 14px;
+    height: 180px;
+    max-height: 220px;
+    line-height: 40px;
+    width: 100%;
+    padding-left: 15px;
+}
+
+.parallax-1 {
+    position: absolute;
+    width:100%;
+    height:100%;
+    background-image: url("https://images.unsplash.com/photo-1470063392796-fce5fcd904e8?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    min-height: 500px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.overlay {
+    background-color: rgba(10, 10, 10, 0.7);
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100%;
+    z-index: 1;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    padding: 2em;
+    height: 100vh;
+    gap: 1em;
+    width: 100%;
+    margin: auto;
+}
+
+
+
+h1 {
+    line-height: 70px;
+    margin-top: 10px;
+    font-weight: bold;
+    font-family: 'Nunito';
+    color: white;
+    text-align: center;
+}
+
+hr {
+    width: 5em;
+    border: 2px solid red;
+    margin: auto;
+}
+
+footer {
+    position: fixed;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    font-size: small;
+    font-weight: bold;
+    color: white;
+}
+
+button {
+    font-weight: bold;
+    width: 90%;
+    background-color: #92D5E1;
+    border-color: white;
+    margin: 5px;
+    border-radius: 10px;
+}
+
+button:hover {
+    background-color: #83BEC8;
+}
+#subject, #message {
+    width: 90%;
+}
+
+#email, #name {
+    width: 43%;
+}
+
+.item {
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.fa {
+    color: white;
+}
+
+.group {
+    display: inline-block;
+    margin-right: 10px;
+    margin-left: 5px;
+  }
+
+i, h6 {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 40px;
+    margin-bottom: 4px;
+    margin-left: 4px;
+  }
+
+h6 {
+    color: white;
+    font-weight: none;
+}
+
+
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        overflow: auto;
+    }
+
+    .item {
+        gap: 2em;
+    }
+    iframe {
+        width: 100%;
+        height: 50%;
+        margin-bottom: 35%;
+    }
+
+    #email, #name, #subject, textarea  {
+        width: 90%;
+    }
+  }
+
+@media (max-width: 900px) {
+    h6 {
+        line-height: 20px;
+    }
+}
