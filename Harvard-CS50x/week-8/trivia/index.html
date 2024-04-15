@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            // TODO: Add code to check answers to questions
+            document.addEventListener('DOMContentLoaded', function() {
+            // Get elements with class "correct"
+            let rights = document.querySelectorAll('.right');
+            for (let i = 0; i < rights.length; i++) {
+                rights[i].addEventListener('click', function() {
+                rights[i].style.backgroundColor = 'green';
+                let qn_num = (i + 1).toString();
+                document.querySelector('#feedback' + qn_num).innerHTML = 'Correct!';
+                });
+            }
+
+
+            let wrongs = document.querySelectorAll('.wrong');
+            for (let i = 0; i < wrongs.length; i++) {
+                wrongs[i].addEventListener('click', function() {
+                    wrongs[i].style.backgroundColor = 'red';
+                    let qn_num = (Math.floor(i / 3) + 1).toString();
+                    document.querySelector('#feedback' + qn_num).innerHTML = 'Incorrect';
+                });
+            }
+
+            let checks = document.querySelectorAll('.check');
+            let inputs = document.querySelectorAll('input');
+            let ans = ['Iceland', 'Knee cap']
+                for (let i = 0; i < checks.length; i++) {
+                    checks[i].addEventListener('click', function() {
+                        if (inputs[i].value == ans[i]) {
+                            inputs[i].style.backgroundColor = 'green';
+                            let qn_num = (i + 4).toString();
+                            document.querySelector('#feedback' + qn_num).innerHTML = 'Correct!';
+                        }
+                        else {
+                            inputs[i].style.backgroundColor = 'red';
+                            document.querySelector('#feedback' + qn_num).innerHTML = 'Incorrect';
+                        }
+
+                    })
+                }
+            });
+
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+
+                <hr>
+                <!-- TODO: Add multiple choice question here -->
+                <h3>What animal did Australian soldiers fight in 1932?</h3>
+                <button class="wrong">Wolves</button>
+                <button class="wrong">Leopards</button>
+                <button class="right">Emus</button>
+                <button class="wrong">Hippopotamuses</button>
+
+                <!-- Lets user know if ans is correct -->
+                <p id="feedback1"></p>
+
+                <h3>In which country was it once illegal to own just one guinea pig because they can get lonely?</h3>
+                <button class="wrong">Germany</button>
+                <button class="right">Switzerland</button>
+                <button class="wrong">Finland</button>
+                <button class="wrong">New Zealand</button>
+
+                <!-- Lets user know if ans is correct -->
+                <p id="feedback2"></p>
+
+                <h3>In which country was the sport of curling invented?</h3>
+                <button class="right">Scotland</button>
+                <button class="wrong">Canada</button>
+                <button class="wrong">Sweden</button>
+                <button class="wrong">Norway</button>
+
+                <!-- Lets user know if ans is correct -->
+                <p id="feedback3"></p>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <!-- TODO: Add free response question here -->
+                <h3>In what country do more than half of people believe in elves?</h3>
+                <input placeholder="Answer" autocomplete="off" type ="text"></input>
+                <button class="check">Check Answer</button>
+
+                <!-- Lets user know if ans is correct -->
+                <p id="feedback4"></p>
+
+                <h3>Which bone are babies born without?</h3>
+                <input placeholder="Answer" autocomplete="off" type ="text"></input>
+                <button class="check">Check Answer</button>
+
+                <p id="feedback5"></p>
+            </div>
+        </div>
+    </body>
+</html>
