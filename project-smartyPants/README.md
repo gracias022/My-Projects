@@ -1,7 +1,9 @@
 # SMARtYpants
 #### Video Demo: https://www.youtube.com/watch?v=30PbOV303ps (sped-up version)
 #### Description:
-My project is a web-based application created using Flask, which incorporates JavaScript, Python, HTML, CSS and SQL.
+Collaborator: Tricia Chew
+
+Our project is a web-based application created using Flask, which incorporates JavaScript, Python, HTML, CSS and SQL.
 
 My templates directory contains 10 HTML files. layout.html contains references to external style sheet files enclosed in <link>  elements, as well as the "skeleton" of each webpage. The other HTML files extend layout.html via jinja syntax.
 
