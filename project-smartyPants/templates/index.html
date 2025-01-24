@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quiz Games
+{% endblock %}
+
+{% block main %}
+<div class="index-container">
+    <div class="index-item">
+        <h2>SpellingBee</h2>
+        <audio autoplay><source src="/static/crazy-frog-popcorn-made-with-Voicemod.mp3" type="audio/mp3" id="audio"></audio>
+        <a href="/english">
+            <img src="https://img.freepik.com/free-photo/rendering-bee-anime-character_23-2150963668.jpg?size=338&ext=jpg&ga=GA1.1.1700460183.1712707200&semt=ais" alt="Spelling Bee" style="border-radius: 20px; position: relative; margin: 20px;">
+        </a>
+    </div>
+    <div class="index-item">
+        <h2>
+            MathWhiz
+        </h2>
+        <a href="/math">
+            <img src="https://img.freepik.com/free-vector/hand-drawn-cartoon-mathematical-symbols_23-2148787062.jpg?w=740&t=st=1713798317~exp=1713798917~hmac=e151f26bdf303f113587b6ddd1b0c0f7e717c5c74e7fe0d5fcbcff7e85da41ea" alt="Math symbols" style="width: 300px; height: 300px; border-radius: 20px; position: relative; margin-left: -10px;">
+        </a>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        let body = document.querySelector('body');
+        body.style.background = 'url(https://cdn.vectorstock.com/i/500p/25/45/galaxy-star-space-kids-blank-banner-rocket-vector-45282545.jpg)';
+        body.style.backgroundSize = 'cover';
+        body.style.backgroundRepeat = 'no-repeat';
+        body.style.backgroundAttachment = 'fixed';
+    })
+    document.getElementById("audio").loop = true;
+</script>
+{% endblock %}

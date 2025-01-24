@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Mathlympics
+{% endblock %}
+
+{% block main %}
+
+    <form action="/math" method="post" id="mathForm" style="animation: fadeIn 1s ease-in both;">
+        <div class="grid-container">
+            {% for cat in category %}
+                <div>
+                    <div class="mb-3 cat" id="cat-item">
+                        <input type="button" class="math-cat" value="{{ cat }}">
+
+                        <div class="overlay">
+                            {% for i in range(3) %}
+                                <button id="level" onclick="submitForm(event)" value="Level {{ i + 1 }}">Level {{ i+1 }}</button>
+                                <br>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <input type="hidden" id="hiddencat" name="category" value="">
+        <input type="hidden" id="hiddenlevel" name="level_chosen" value="">
+    </form>
+
+
+    <script>
+        function submitForm(event) {
+                event.preventDefault();
+                console.log("submitForm was called");
+                const category = event.target.closest('.cat').querySelector('input[type="button"]').value;
+                let level = event.target.value;
+                document.querySelector('#hiddencat').value = category;
+                document.querySelector('#hiddenlevel').value = level;
+                document.getElementById('mathForm').submit();
+            }
+
+        document.addEventListener('DOMContentLoaded', function () {
+
+            categories = document.querySelectorAll("#cat-item");
+            overlays = document.querySelectorAll(".overlay");
+            for (let i = 0; i < categories.length; i++) {
+                categories[i].addEventListener('mouseover', function() {
+                overlays[i].style.display = 'block';
+                });
+
+                let isClicked = false;
+                overlays[i].addEventListener('click', function() {
+                    isClicked = true;
+                });
+
+                categories[i].addEventListener('mouseout', function() {
+                    if (!isClicked) {
+                        overlays[i].style.display = 'none';
+                    }
+                });
+            }
+        });
+
+        </script>
+{% endblock %}

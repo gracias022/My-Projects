@@ -1,0 +1,196 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Mathlympics
+{% endblock %}
+
+{% block main %}
+
+
+
+    {% for tuple in list %}
+        {% if loop.index0 < 10 %}
+            {% if tuple | length == 3 %}
+                {% if symbol == "-" %}
+                    <div class="probs">
+                        <h3 class="num">{{ tuple[0] }}</h3><h3 class="mathsymbol">{{ symbol }}</h3><h3 class="num">{{ tuple[1] }}</h3><h3 class="mathsymbol">&#61</h3>
+                        <input required placeholder="Answer" class="form-control mx-auto w-auto" autocomplete="off" type ="number">
+                        <h3 class="mathsymbol">{{ symbol }}</h3><h3 class="num">{{ tuple[2] }}</h3>
+                    </div>
+
+
+                {% elif symbol == "×" %}
+                    <div class="probs">
+
+                        <h3 class="num">{{ tuple[0] }}</h3><h3 class="mathsymbol">{{ symbol }}</h3><h3 class="num">{{ tuple[1] }}</h3><h3 class="mathsymbol">{{ symbol }}</h3>
+                        <h3 class="num">{{ tuple[2] }}</h3><h3 class="mathsymbol">&#61</h3>
+                        <input required placeholder="Answer" class="form-control mx-auto w-auto" autocomplete="off" type ="number">
+                    </div>
+
+                <!--Divide-->
+                {% elif symbol == "÷" %}
+                    {% if type[loop.index0] == 2 %}
+                        <div class="probs">
+                            <h3 class="num">{{ tuple[0] }}</h3><h3 class="mathsymbol">{{ symbol }}</h3><input required placeholder="Answer" class="form-control mx-auto w-auto" autocomplete="off" type ="number">
+                            <h3 class="mathsymbol">&#61</h3><h3 class="num">{{ tuple[1] }}</h3><h3 class="mathsymbol">&#215</h3><h3 class="num">{{ tuple[2] }}</h3>
+                        </div>
+
+                    {% elif type[loop.index0] == 1 %}
+                        <div class="probs">
+                            <h3 class="num">{{ tuple[0] }}</h3><h3 class="mathsymbol">{{ symbol }}</h3><h3 class="num">{{ tuple[1] }}</h3><h3 class="mathsymbol">{{ symbol }}</h3>
+                            <input required placeholder="Answer" class="form-control mx-auto w-auto" autocomplete="off" type ="number">
+                            <h3 class="mathsymbol">&#61</h3><h3 class="num">{{ tuple[2] }}</h3>
+                        </div>
+                    {% endif %}
+
+                {% endif %}
+
+            {% else %}
+                {% if symbol == "÷" %}}
+                    <div class="probs">
+                        <h3 class="num">{{ tuple[0] }}</h3><h3 class="mathsymbol">{{ symbol }}</h3><h3 class="num">{{ tuple[1] }}</h3><h3 class="mathsymbol">&#61</h3>
+                        <input required placeholder="Answer: to 3dp" class="form-control mx-auto w-auto" autocomplete="off" type ="number">
+                    </div>
+
+                {% else %}
+                    <div class="probs">
+                        <h3 class="num">{{ tuple[0] }}</h3><h3 class="mathsymbol">{{ symbol }}</h3><h3 class="num">{{ tuple[1] }}</h3><h3 class="mathsymbol">&#61</h3>
+                        <input required placeholder="Answer" class="form-control mx-auto w-auto" autocomplete="off" type ="number">
+                    </div>
+                {% endif %}
+            {% endif %}
+
+        <p id="feedback{{ loop.index0 }}"></p>
+        {% endif %}
+    {% endfor %}
+
+    <div class="spelling-format">
+        <button class="check">Check Answers</button>
+        <button onclick="openPopup()" id="seescore">See Score</button>
+    </div>
+
+    <div class="popup-overlay" id="popupOverlay">
+
+        <div class="popup" id="popup">
+
+            <!--close button top right-hand corner-->
+            <span class="close" id="closePopup">&times;</span>
+
+            <div class="popup-content">
+
+                <h4>Score:</h4>
+                <br>
+                <h1 id="score"></h1>
+                <br>
+                <a href="/"><i class="fa fa-home fa-2x"></i></a> <a href="/math"><i class="fa fa-repeat fa-2x"></i></a>
+                {% if session["user_id"]| int %}
+                    <a href="/mygrades" id="pastgrades">Past Grades</a>
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let check = document.querySelector('.check');
+            let score = 0;
+            let inputs = document.querySelectorAll('input');
+
+            let main = document.querySelector('main');
+            main.style.animation = 'fade ease 2s';
+            main.style.animationIterationCount = '1';
+            main.style.animationFillMode = 'forwards';
+
+            check.addEventListener('click', function() {
+
+                let ans = {{ ans }};
+
+
+                for (let i = 0; i < inputs.length; i++) {
+                    let qn_num = i.toString();
+                    if (!inputs[i].value) {
+                        document.querySelector('#feedback' + qn_num).innerHTML = 'Please answer all questions!';
+                        document.querySelector('#feedback' + qn_num).style.color = '#E04D2D';
+                        return 1;
+                    }
+                    if (inputs[i].value == ans[i]) {
+                        inputs[i].style.backgroundColor = "#74D293";
+                        document.querySelector('#feedback' + qn_num).innerHTML = 'Correct!';
+                        document.querySelector('#feedback' + qn_num).style.color = '#74D293';
+                        score++;
+                    }
+                    else {
+                        inputs[i].style.backgroundColor = '#E04D2D';
+                        document.querySelector('#feedback' + qn_num).innerHTML = 'Incorrect :( ' + 'ANS: ' + ans[i];
+                        document.querySelector('#feedback' + qn_num).style.color = '#E04D2D';
+                    }
+                }
+                //prevent user from typing anymore after submitting
+
+                inputs.forEach(input => {
+                input.readOnly = true;
+                });
+
+                document.getElementById('score').innerHTML = score + ' / 10';
+
+                document.getElementById('seescore').style.display = 'block';
+                let category = {{ category | tojson }}
+                fetch('/mygrades', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({score: score, category: category, level: {{ level }} }),
+                });
+                //.then(response => response.json())
+                //.then(data => console.log(data))
+                //.catch((error) => console.error('Error:', error));
+
+            });
+
+            let h3 = document.querySelectorAll('h3');
+            h3.forEach(element => {
+                let text = element.innerText;
+                element.innerText = text.replace(/\n/g, "");
+
+            });
+
+            let body = document.querySelector('body');
+            body.style.background = 'url(https://wallpapercave.com/wp/wp6547134.jpg)';
+
+
+    });
+
+            const popupOverlay = document.getElementById('popupOverlay');
+            const closePopup = document.getElementById('closePopup');
+
+            function openPopup() {
+                popupOverlay.style.display = 'block';
+            }
+
+            // Function to close the popup
+
+            function closePopupFunc() {
+                popupOverlay.style.display = 'none';
+            }
+
+            // Close popup when close button is clicked
+
+            closePopup.addEventListener('click', closePopupFunc);
+
+            // Close popup when clicking outside the popup content
+
+            popupOverlay.addEventListener('click', function (event) {
+                if (event.target === popupOverlay) {
+                    closePopupFunc();
+                }
+
+
+            });
+
+
+    </script>
+{% endblock %}

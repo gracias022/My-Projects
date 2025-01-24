@@ -1,0 +1,409 @@
+/* Size for brand */
+
+nav {
+    width: 100%;
+}
+nav .navbar-brand
+{
+    font-size: xx-large;
+    font-family: 'Smartie CAPS', sans-serif;
+}
+
+/* Colors for brand */
+
+nav .navbar-brand .red
+{
+    color: #B73F62;
+}
+nav .navbar-brand .yellow
+{
+    color: #C78F00;
+}
+nav .navbar-brand .green
+{
+    color: #41BA5A;
+}
+nav .navbar-brand .blue
+{
+    color: #3591A5;
+}
+nav .navbar-brand .indigo
+{
+    color: #4149BA;
+}
+nav .navbar-brand .violet
+{
+    color: #744F95;
+}
+.index-container {
+    display: grid;
+    grid-auto-flow: column;
+    padding: 1em;
+    gap: 1em;
+    margin: auto;
+    justify-content: space-around;
+}
+
+@media (max-width: 1150px) {
+    .index-container {
+        grid-auto-flow: row;
+
+    }
+  }
+
+
+.index-item {
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    transform:
+          perspective(800px)
+          rotateY(25deg) scale(0.9)
+          rotateX(10deg);
+    filter: blur(1px);
+    opacity: 1;
+    transition: 0.6s ease all;
+
+        &:hover {
+          transform:
+            perspective(800px)
+            rotateY(-15deg)
+            translateY(-50px)
+            rotateX(10deg)
+            scale(1);
+          filter: blur(0);
+          opacity: 1;
+        }
+      }
+
+.index-item h2 {
+        font-family: 'Smartie CAPS', sans-serif;
+        transform: rotate(-90deg);
+        position: relative;
+        font-size: 80px;
+        margin: -50px;
+        color: white;
+      }
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    padding: 2em;
+    height: 80vh;
+    gap: 1em;
+    width: 80%;
+    margin: auto;
+
+}
+.inline-block {
+	display: inline-block;
+    padding: 20px;
+}
+.hidden {
+    margin:auto;
+    display:none;
+}
+
+.cat {
+    position: relative;
+    font-family: 'Bubble Love', sans-serif;
+}
+
+.math-cat {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    padding: 20%;
+    text-align: center;
+    z-index: 0;
+    background-color: #ECAF80;
+}
+
+#level {
+    margin: 5px;
+    background-color: rgba(148, 224, 203, 0.68);
+
+}
+.overlay {
+    background-color: rgba(10, 10, 10, 0.7);
+    position: absolute;
+    align-items: center;
+    margin-right: 8px;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+@media (max-width: 768px) {
+.grid-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        overflow: auto;
+    }
+}
+
+.nextbutton {
+    background-color:coral;
+    color:yellow;
+    cursor: pointer;
+    padding: 10px;
+    font-size:28;
+    text-align: center;
+    width: 150px;
+    border: none;
+    border-radius: 5px;
+    position: absolute;
+    top: 400px;
+    right: 200px;
+
+}
+.nextbutton:hover {
+    padding-right:45px;
+    transition: 0.5s;
+}
+.nextbutton::after {
+    content: '\00BB';
+    position: absolute;
+    margin-left: 15px;
+    top: 335px;
+    font-size: 30px;
+    opacity: 0;
+    transition: 0.5s;
+}
+.nextbutton:hover::after{
+    opacity:1;
+}
+
+.number {
+position:absolute;
+top: 49%;
+left: 43%;
+z-index: 1;
+font-size: 30px;
+}
+
+.stripedbg {
+position: relative;
+width: 100%;
+height: 100%;
+left: 0;
+top: 70px;
+background-image: url('https://wallpapers.com/images/hd/cute-winnie-the-pooh-with-honeybees-p1bfhuvf9d9sjbie.jpg');
+background-size: cover;
+background-repeat: no-repeat;
+font-family: Luminari, fantasy;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+animation: fadeIn 1s ease-in both;
+}
+/*background-color: rgb(244, 237, 168);
+background-image: linear-gradient(0deg, transparent 50%, rgb(90, 80, 80) 50%);
+background-size:60px 60px;
+background-repeat:repeat;*/
+
+
+
+.audiobutton {
+    font-size:30;
+    padding:14px;
+    cursor:pointer;
+    background-color:rgb(151, 151, 255);
+    border-radius: 50px 20px;
+    /* width: 150px;
+    height: 100px; */
+}
+
+.num {
+    border-radius: 5px;
+    padding: 3em 1em;
+    width: 200px;
+    background-color: #888982;
+    color: #D1F90A;
+}
+
+.spelling-format, .probs {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.probs {
+    overflow: auto;
+}
+
+.spelling-format {
+    justify-content: center;
+}
+
+.spelling-item {
+    padding: 20px;
+    padding-top: 50px;
+    position: relative;
+}
+
+.mathsymbol {
+    padding: 3em 2em;
+    color: #D1F90A;
+}
+
+body {
+    background: url(https://png.pngtree.com/background/20210712/original/pngtree-cute-hand-drawn-style-mathematics-education-pink-stripes-background-picture-image_1176959.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+}
+
+html, body {
+    height: 100%;
+}
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.popup {
+        font-family: 'Nunito', sans-serif;
+        font-weight: bold;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #7F98EB;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+    }
+
+.popup-content {
+        text-align: center;
+    }
+
+.popup .close {
+        position: absolute;
+        top: 10px;
+        right: 12px;
+        font-size: 20px;
+        cursor: pointer;
+        color: #333;
+    }
+
+.popup .close:hover {
+    color: #000;
+}
+
+    .popup #pastgrades {
+        cursor: pointer;
+        font-size: 20px;
+        text-decoration: none;
+
+    }
+
+    .popup-content .fa-home, .popup-content .fa-repeat, .popup-content #pastgrades {
+        margin-left: 6px;
+        color: #B8EB7F;
+    }
+    .popup #pastgrades:hover {
+        color: #ddd;
+    }
+
+    #seescore {
+        display: none;
+        margin-left: 10px;
+    }
+
+.theend {
+    font-family: 'Vilanders Sans', sans-serif;
+    font-size: 100px;
+    position: relative;
+    top: -50px;
+    z-index: 2;
+}
+.score {
+    font-family: 'Vilanders Sans', sans-serif;
+    font-size: 100px;
+    position: relative;
+    top: -50px;
+    z-index: 2;
+
+}
+
+.stripedbg a {
+    display: none;
+    color: #472009;
+    font-size: 50px;
+    text-decoration: none;
+    padding: 20px;
+    padding-bottom: 85px;
+    position: relative;
+    z-index: 2;
+    top: -50px;
+}
+
+.stripedbg a:hover {
+    color: #642540;
+}
+
+@media (max-width: 900px) {
+    .stripedbg a  {
+        font-size: 40px;
+    }
+  }
+
+@media (max-width: 800px) {
+    .stripedbg a  {
+        font-size: 30px;
+    }
+  }
+
+
+
+  .alert {
+    font-family: 'Bubble Love', sans-serif;
+    background: rgba(68, 77, 171, 0.5);
+    color: #80D2F5;
+    animation: fadeIn 0.7s ease-in both;
+    z-index: 5;
+}
+
+  @keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translate3d(0, -20%, 0);
+	}
+	to {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+	}
+}
+
+@keyframes fadeOut {
+	from {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+	}
+	to {
+		opacity: 0;
+		transform: translate3d(0, -20%, 0);
+	}
+}
+
+
+@keyframes fade {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+

@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    My Grades
+{% endblock %}
+
+{% block main %}
+
+    <table class="table table-striped" style="animation: fadeIn 1s ease-in both;">
+        <thead>
+            <tr>
+                <th scope="col">Quiz</th>
+                <th scope="col">Level</th>
+                <th scope="col">Score</th>
+                <th scope="col">Date/Time</th>
+
+            </tr>
+        </thead>
+        <tbody id="tbody">
+        {% for row in history %}
+            <tr>
+                <td>{{ row["quiz"] }}</td>
+                <td>{{ row["level"] }}</td>
+                <td>{{ row["score"] }}</td>
+                <td>{{ row["date"] }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+
+    </table>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        let body = document.querySelector('body');
+        body.style.background = 'url(https://i.pinimg.com/736x/77/73/65/7773655a36d23006b44ca64e18b49988.jpg)';
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Apology
+{% endblock %}
+
+{% block main %}
+    <!-- https://memegen.link/ -->
+    <!-- https://api.memegen.link/images/genie.png -->
+    <img alt="{{ top }}" class="border img-fluid" src="https://api.memegen.link/images/custom/{{ top | urlencode }}/{{ bottom | urlencode }}.jpg?background=https://api.memegen.link/images/genie.png&width=400" title="{{ top }}">
+
+    <script>
+        let body = document.querySelector('body');
+        body.style.background = 'url(https://wallpapers.com/images/hd/red-pixel-glitch-qxiq6qaypzbuqbuh.jpg)';
+        body.style.backgroundRepeat = 'no-repeat';
+        body.style.backgroundSize = 'cover';
+    </script>
+{% endblock %}
